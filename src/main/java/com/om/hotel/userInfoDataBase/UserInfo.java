@@ -32,4 +32,13 @@ public class UserInfo {
 
     @Column(name = "email")
     private String e_mail;
+
+    @Column(name = "date_on")
+    private String dateOn;
+
+    @Column(name = "date_off")
+    private String dateOff;
+
+    @Column(name = "sex")
+    private Integer sex;
 }

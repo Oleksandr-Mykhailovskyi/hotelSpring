@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-    @Setter
+@Setter
     @Entity
     @AllArgsConstructor
     @NoArgsConstructor
@@ -29,5 +29,14 @@ import javax.persistence.*;
 
         @Column(name = "howManyPeople")
         private Integer howManyPeople;
+
+        @Column(name = "vegan_breakfast")
+        private Boolean veganBreakfast;
+
+        @Column(name = "date_on")
+        private String dateOn;
+
+        @Column(name = "date_off")
+        private String dateOff;
 
 }

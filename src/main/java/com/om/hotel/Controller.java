@@ -4,6 +4,7 @@ import com.om.hotel.rentRoomsDataBase.RentRoomsData;
 import com.om.hotel.rentRoomsDataBase.RentRoomsRepository;
 import com.om.hotel.room.Room;
 import com.om.hotel.room.RoomRepository;
+import com.om.hotel.sendEmail.SendMail;
 import com.om.hotel.userDataBase.UserRepository;
 import com.om.hotel.userInfoDataBase.UserInfo;
 import com.om.hotel.userInfoDataBase.UserInfoRepository;
@@ -59,13 +60,12 @@ class Controller {
         return roomRepository.findById(id).orElseThrow();
     }
 
-    @PostMapping("/ty")
-    public void setUser(@RequestBody UserInfo userInfo){
-        userInfoRepository.save(userInfo);
-    }
+    @PostMapping("/info")
+    public void setUser(@RequestBody UserInfo userInfo){ userInfoRepository.save(userInfo); }
 
     @PostMapping("/room")
     public void setRentUser(@RequestBody RentRoomsData room){
         rentRoomsRepository.save(room);
+        new SendMail();
     }
 }

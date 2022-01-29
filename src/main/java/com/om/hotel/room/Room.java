@@ -22,12 +22,10 @@ public class Room {
     @Column(name = "price")
     private Integer price;
 
-    @Column(name = "text")
-    private String text;
-
     @Column(name = "breakfast")
     private Boolean breakfast;
 
     @Column(name = "howManyPeople")
     private Integer howManyPeople;
+
 }
