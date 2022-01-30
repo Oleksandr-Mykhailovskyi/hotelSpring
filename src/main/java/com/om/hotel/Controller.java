@@ -1,5 +1,6 @@
 package com.om.hotel;
 
+import com.om.hotel.getIdRoomAndUser.GetId;
 import com.om.hotel.rentRoomsDataBase.RentRoomsData;
 import com.om.hotel.rentRoomsDataBase.RentRoomsRepository;
 import com.om.hotel.room.Room;
@@ -22,14 +23,18 @@ class Controller {
 
     private UserInfoRepository userInfoRepository;
 
+    private SendMail sendMail;
+
     public Controller(RoomRepository roomRepository,
                       UserRepository userRepository,
                       UserInfoRepository userInfoRepository,
-                      RentRoomsRepository rentRoomsRepository) {
+                      RentRoomsRepository rentRoomsRepository,
+                      SendMail sendMail) {
         this.roomRepository = roomRepository;
         this.userRepository = userRepository;
         this.userInfoRepository = userInfoRepository;
         this.rentRoomsRepository = rentRoomsRepository;
+        this.sendMail = sendMail;
     }
 
     @GetMapping("/sayHi")
@@ -61,11 +66,19 @@ class Controller {
     }
 
     @PostMapping("/info")
-    public void setUser(@RequestBody UserInfo userInfo){ userInfoRepository.save(userInfo); }
+    public void setUser(@RequestBody UserInfo userInfo){
+        userInfoRepository.save(userInfo);
+    }
 
     @PostMapping("/room")
     public void setRentUser(@RequestBody RentRoomsData room){
-        rentRoomsRepository.save(room);
-        new SendMail();
+         rentRoomsRepository.save(room);
+    }
+
+    @PostMapping("/sendEmail")
+    public void sendMail(@RequestBody GetId id){
+        Long idRoom = id.getIdRoom();
+        Long idUSer = id.getIdUSer();
+        sendMail.send(idUSer, idRoom);
     }
 }

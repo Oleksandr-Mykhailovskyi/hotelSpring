@@ -18,6 +18,9 @@ import javax.persistence.*;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
+        @Column(name = "roomId")
+        private Long roomId;
+
         @Column(name = "price")
         private Integer price;
 

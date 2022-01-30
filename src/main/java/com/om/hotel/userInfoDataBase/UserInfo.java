@@ -18,6 +18,9 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "userId")
+    private Long userId;
+
     @Column(name = "name")
     private String name;
 
