@@ -1,15 +1,15 @@
 package com.om.hotel.getIdRoomAndUser;
 
 public class GetId {
-    Long idUSer;
+    Long idUser;
     Long IdRoom;
 
-    public Long getIdUSer() {
-        return idUSer;
+    public Long getIdUser() {
+        return idUser;
     }
 
     public void setIdUSer(Long idUSer) {
-        this.idUSer = idUSer;
+        this.idUser = idUSer;
     }
 
     public Long getIdRoom() {
@@ -20,8 +20,8 @@ public class GetId {
         IdRoom = idRoom;
     }
 
-    public GetId(Long idUSer, Long idRoom) {
-        this.idUSer = idUSer;
-        IdRoom = idRoom;
+    public GetId(Long idUser, Long idRoom) {
+        this.idUser = idUser;
+        this.IdRoom = idRoom;
     }
 }

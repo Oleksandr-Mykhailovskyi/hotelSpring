@@ -33,9 +33,6 @@ import javax.persistence.*;
         @Column(name = "howManyPeople")
         private Integer howManyPeople;
 
-        @Column(name = "vegan_breakfast")
-        private Boolean veganBreakfast;
-
         @Column(name = "date_on")
         private String dateOn;
 

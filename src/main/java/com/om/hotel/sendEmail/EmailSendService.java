@@ -23,11 +23,11 @@ public class EmailSendService {
         this.userInfoRepository = userInfoRepository;
     }
 
-    public void sendEmail(Long idUser, Long idRoom) {
+    public void sendEmail() {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("mojtesthotel@gmail.com");
-        message.setTo(userInfoRepository.getById(idUser).getE_mail());
-        message.setText("Hello dr. " + userInfoRepository.getById(idUser).getName() + " " + userInfoRepository.getById(idUser).getSurname() + "Thank you for choosing of our hotel, your price is :" + rentRoomsRepository.getById(idRoom).getPrice() + " date on is : " + rentRoomsRepository.getById(idRoom).getDateOn() + " date off is: " + rentRoomsRepository.getById(idRoom).getDateOff());
+        message.setTo(userInfoRepository.findAll().get(userInfoRepository.findAll().size() - 1).getE_mail());
+        message.setText("Hello dr. " + userInfoRepository.findAll().get(userInfoRepository.findAll().size() - 1).getName() + " " + userInfoRepository.findAll().get(userInfoRepository.findAll().size() - 1).getSurname() + " Thank you for choosing of our hotel, your price is :" + rentRoomsRepository.findAll().get(rentRoomsRepository.findAll().size() - 1).getPrice() + " date on is : " + rentRoomsRepository.findAll().get(rentRoomsRepository.findAll().size() - 1).getDateOn() + " date off is: " + rentRoomsRepository.findAll().get(rentRoomsRepository.findAll().size() - 1).getDateOff());
 
         mailSender.send(message);
 

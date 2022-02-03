@@ -78,7 +78,7 @@ class Controller {
     @PostMapping("/sendEmail")
     public void sendMail(@RequestBody GetId id){
         Long idRoom = id.getIdRoom();
-        Long idUSer = id.getIdUSer();
-        sendMail.send(idUSer, idRoom);
+        Long idUSer = id.getIdUser();
+        sendMail.send();
     }
 }

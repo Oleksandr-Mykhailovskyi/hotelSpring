@@ -10,8 +10,8 @@ public class SendMail {
     @Autowired
     private EmailSendService sendService;
 
-    public void send(Long idUser, Long idRoom) {
-        sendService.sendEmail(idUser, idRoom);
+    public void send() {
+        sendService.sendEmail();
     }
 }
 
